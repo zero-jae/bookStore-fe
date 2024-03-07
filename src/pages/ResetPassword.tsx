@@ -11,7 +11,7 @@ import { SignupStyle, SignupProps } from "./Signup";
 
 function ResetPassword() {
   const navigate = useNavigate();
-  const showAlert = useAlert();
+  const {showAlert} = useAlert();
   const [resetRequested, setResetRequested] = useState(false);
 
   const { register, handleSubmit, formState: {errors}} = useForm<SignupProps>();

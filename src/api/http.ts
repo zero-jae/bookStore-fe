@@ -11,8 +11,8 @@ export const createClient = (config?: AxiosRequestConfig) => {
     headers: {
       "content-type": "application/json",
       Authorization: getToken() ? getToken() : "",
-      "Access-Control-Allow-Origin": `http://localhost:3000`,
-      "Access-Control-Allow-Credentials": "true"
+      // "Access-Control-Allow-Origin": `http://localhost:3000`,
+      // "Access-Control-Allow-Credentials": "true"
     },
     withCredentials: true,
     ...config
@@ -23,7 +23,7 @@ export const createClient = (config?: AxiosRequestConfig) => {
     },
     (error) => {
       // 로그인 만료 처리
-      if (error.response.status == 401) {
+      if (error.response.status === 401) {
         removeToken();
         window.location.href = "/login";
         return;
